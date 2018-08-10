@@ -1,4 +1,4 @@
-## Database > MySQL > コンソール使用ガイド
+## Database > MySQL Instance > コンソール使用ガイド
 
 ## MySQL version
 

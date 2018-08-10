@@ -1,4 +1,4 @@
-## Database > MySQL > Console Guide
+## Database > MySQL Instance > Console Guide
 
 ## MySQL version
 

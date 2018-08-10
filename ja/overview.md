@@ -1,1 +1,1 @@
-## Database > MySQL > 概要
+## Database > MySQL Instance > 概要

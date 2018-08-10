@@ -1,1 +1,1 @@
-## Database > MySQL > 개요
+## Database > MySQL Instance > 개요

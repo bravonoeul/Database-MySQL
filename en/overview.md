@@ -1,1 +1,1 @@
-## Database > MySQL > Overview
+## Database > MySQL Instance > Overview
