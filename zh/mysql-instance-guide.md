@@ -1,4 +1,4 @@
-## Database > MySQL Instance > 控制台使用指南
+## Database > MySQL Instance > Instance指南
 
 ## MySQL version
 
