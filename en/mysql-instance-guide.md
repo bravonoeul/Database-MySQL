@@ -111,5 +111,7 @@ Directory and file description of MySQL are as below:
 | ERROR_LOG | Route for MySQL error_log File  - /var/log/mysqld.log |
 | SLOW_LOG | Route for MySQL Slow Query File -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
 
+
+
 > 인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/en/console-guide/)를 참고하시기 바랍니다.
 > MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/en/release-notes/)를 참고하시기 바랍니다.
