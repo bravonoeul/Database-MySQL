@@ -114,5 +114,5 @@ MySQL列表和文件描述如下所示。
 
 
 > 인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/zh/console-guide/)를 참고하시기 바랍니다.
-> MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/zh/release-notes/)를 참고하시기 바랍니다.
+> MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/Compute/zh/release-notes/)를 참고하시기 바랍니다.
 
