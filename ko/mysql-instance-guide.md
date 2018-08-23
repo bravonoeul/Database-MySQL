@@ -110,3 +110,8 @@ MySQL 디렉터리 및 파일 설명은 아래와 같습니다.
 | DATADIR | MySQL 데이터 파일 경로  - /var/lib/mysql/ |
 | ERROR_LOG | MySQL error_log 파일 경로  - /var/log/mysqld.log |
 | SLOW_LOG | MySQL Slow Query 파일 경로 -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
+
+
+
+> 인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/ko/console-guide/)를 참고하시기 바랍니다.
+> MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/Compute/ko/release-notes/)를 참고하시기 바랍니다.
