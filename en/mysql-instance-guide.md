@@ -1,15 +1,34 @@
 ## Database > MySQL Instance > Instance Guide
 
-## MySQL version
+## Creating MySQL Instance
 
-##### MySQL of TOAST Cloud is classified into the following two versions: 
+In order to use MySQL Instance service, you need to create an instance first.
+
+![mysqlinstance_01_201812_en](https://static.toastoven.net/prod_mysql/mysqlinstance_01_201812_en.png)
+
+Clicking on the Create MySQL Instance **Shortcut** button will redirect you to **Compute > Instance > Create Instance** page.
+
+There are two versions of MySQL provided.
+
+![mysqlinstance_02_201812_en](https://static.toastoven.net/prod_mysql/mysqlinstance_02_201812_en.png)
 
 * MySQL Community Server 5.6.38
     * mysql-community-server-5.6.38-2.el6.x86_64
 * MySQL Community Server 5.7.20
     * mysql-community-server-5.7.20-1.el6.x86_64
 
-## How to Start/Stop MySQL 
+Choose MySQL Image and complete additional settings to create an instance.
+For additional information on creating an instance, please refer to [Instance Overview](http://docs.toast.com/en/Compute/Instance/en/overview/).
+
+When an instance is created, use SSH to connect to the instance.
+A Floating IP must be associated with the instance and TCP port 22(SSH) should be added as a rule in Security Groups.
+
+![mysqlinstance_03_201812_en](https://static.toastoven.net/prod_mysql/mysqlinstance_03_201812_en.png)
+
+Use SSH client along with the key pair provided to access the instance.
+For detailed guide on SSH connection, please refer to [SSH Connection Guide](https://docs.toast.com/en/Compute/Instance/en/overview/#linux).
+
+## Starting/Stopping MySQL 
 
 ```
 #Start mysql Service 
@@ -22,21 +41,21 @@ shell> service mysqld stop
 shell> service mysqld restart
 ```
 
-## Access MySQL 
+## Connecting to MySQL 
 
-Access as below initially after image is created.
+For initial connection, connect to MySQL with default user name. 
 
 ```
 shell> mysql -uroot
 ```
 
-## Initial Setting after MySQL Image Created 
+## Initial Settings for MySQL Instance
 
-### 1\. Change Passwords 
+### 1\. Setting Password
 
-Passwords for MySQL Root account is not specified after initial installation. Therefore, password change is required after installation.  
+There's no password on root user on initial installation. Therefore, it is required to set password as soon as possible.  
 
-* Change Passwords for MySQL 5.6 Version  
+* Set Password for MySQL Version 5.6  
 
 ```
 SET PASSWORD [FOR user] = password_option
@@ -44,7 +63,7 @@ SET PASSWORD [FOR user] = password_option
 mysql> set password=password('password');
 ```
 
-* Change Passwords for MySQL 5.7  
+* Set Password for MySQL Version 5.7  
 
 ```
 ALTER USER USER() IDENTIFIED BY 'auth_string';
@@ -52,14 +71,14 @@ ALTER USER USER() IDENTIFIED BY 'auth_string';
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'New Password';
 ```
 
-### Default MySQL validate_password_policy is as below:
+Default MySQL validate_password_policy is as below:
 
 * validate\_password\_policy=MEDIUM
-* Must be more than 8 characters, including numbers, lower/upper cases, and special characters.
+* Must be more than 8 characters, and include numbers, lower/upper cases, and special characters.
 
-### 2\. Change Ports
+### 2\. Changing Port Number
 
-#### The default image port is 3306. It is recommended to change port for security reasons. 
+The default MySQL port number is 3306. It is recommended to change the port number for security reasons. 
 
 ```
 shell> vi /etc/my.cnf
@@ -79,7 +98,7 @@ port = Port name to use
 shell> service mysqld restart
 
 
-#Access as below  with changed port
+#Connect with the changed port number
 
 
 shell> mysql -uroot -P[changed port number]
@@ -87,18 +106,18 @@ shell> mysql -uroot -P[changed port number]
 
 ## Description of my.cnf 
 
-The default route of my.cnf is /etc/my.cnf, where variables are set as recommended by ToastCloud, like below: 
+The default path of my.cnf is /etc/my.cnf, and ToastCloud recommended variables are set as below: 
 
 | Name | Description |
 | --- | --- |
-| default\_storage\_engine | Specify a default storage engine: specified in InnoDB and transaction with online DDL is available. |
-| expire\_logs\_days | Set log saving dates accumulated with binlog setting. Default is three days. |
-| innodb\_log\_file\_size | Specify the size of log files which save redo logs of transaction. <br>Recommended for 256MB or higher in actual environment, while it is currently set at 512MB. When setting changes, DB restart is required. |
-| innodb\_file\_per\_table | When a table is deleted or truncated, the table space is immediately returned to OS. |
-| innodb\_log\_files\_in\_group | Set the number of innodb\_log\_file files and use them for circular purpose: composed with at least two. |
-| log_timestamps | Default log time of MySQL 5.7 is displayed as UTC; therefore, change log time to system local time. |
-| slow\_query\_log | Enable the slow\_query log option. Queries of more than 10 seconds in accordance with long_query_time remains in the slow_query_log. |
-| sysdate-is-now | For sysdate, SQL with sysdate() used for replication results in different time between Master and Slave, and functions for sysdate() and now() shall be applied the same. |
+| default\_storage\_engine | Specify a default storage engine: Default is InnoDB with Online-DDL and transactions available. |
+| expire\_logs\_days | Set log expiration period for logs provided by binlog settings. Default is three days. |
+| innodb\_log\_file\_size | Specify the size of log files which save redo logs of transactions. <br>Recommended size is 256MB or higher in actual environment, and it is set as 512MB by default. In order for the changes to take effect, please restart the database. |
+| innodb\_file\_per\_table | When a table is deleted or truncated, the table space is immediately returned to the OS. |
+| innodb\_log\_files\_in\_group | Set the number of innodb\_log\_file files and use them in circular fashion: requires at least two. |
+| log_timestamps | Default log time of MySQL 5.7 is displayed in UTC time format; therefore, change log time to system local time. |
+| slow\_query\_log | Enable the slow\_query log option. Queries taking more than 10 seconds in accordance with long_query_time will be logged to the slow_query_log. |
+| sysdate-is-now | For sysdate, SQL with sysdate() used for replication results in discrepant time between Master and Slave, so sysdate() and now() functions will behave the same. |
 
 ## Description of MySQL Directory 
 
@@ -107,11 +126,9 @@ Directory and file description of MySQL are as below:
 | Name | Description |
 | --- | --- |
 | my.cnf | /etc/my.cnf |
-| DATADIR | Route for MySQL Data File  - /var/lib/mysql/ |
-| ERROR_LOG | Route for MySQL error_log File  - /var/log/mysqld.log |
-| SLOW_LOG | Route for MySQL Slow Query File -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
+| DATADIR | Path for MySQL Data File  - /var/lib/mysql/ |
+| ERROR_LOG | Path for MySQL error_log File  - /var/log/mysqld.log |
+| SLOW_LOG | Path for MySQL Slow Query File -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
 
 
-
-> 인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/en/console-guide/)를 참고하시기 바랍니다.
-> MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/Compute/en/release-notes/)를 참고하시기 바랍니다.
+> For detailed release status of MySQL Instance, please refer to [Instance Release Notes](http://alpha-docs.toast.com/en/Compute/Compute/en/release-notes/).
