@@ -1,13 +1,32 @@
 ## Database > MySQL Instance > 사용 가이드
 
-## MySQL version
+## MySQL Instance 생성
 
-MySQL version은 다음과 같이 2가지 종류가 제공됩니다.
+MySQL을 사용하기 위해서 먼저 인스턴스를 생성해야합니다.
+
+![mysqlinstance_01_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_01_201812.png)
+
+MySQL Instance 생성하기 **바로가기** 버튼을 클릭하면 **Compute > Instance > 인스턴스 생성** 으로 넘어갑니다.
+
+MySQL 버전은 다음과 같이 2가지 종류가 제공됩니다.
+
+![mysqlinstance_02_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_02_201812.png)
 
 * MySQL Community Server 5.6.38
     * mysql-community-server-5.6.38-2.el6.x86_64
 * MySQL Community Server 5.7.20
     * mysql-community-server-5.7.20-1.el6.x86_64
+
+MySQL 이미지 선택 후 추가 설정 완료 후 인스턴스를 생성합니다.
+인스턴스 생성에 대한 자세한 내용은 [Instance 개요](http://docs.toast.com/ko/Compute/Instance/ko/overview/)를 참고하시기 바랍니다.
+
+인스턴스 생성 완료 후 SSH를 사용하여 인스턴스에 접근합니다.
+인스턴스에 Floating IP가 연결되어있어야 하며 보안그룹에서 TCP 포트 22(SSH)가 허용되어야 합니다.
+
+![mysqlinstance_03_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_03_201812.png)
+
+SSH 클라이언트와 설정한 키페어를 이용해 인스턴스에 접속 합니다. 
+SSH 연결에 대한 자세한 가이드는 [SSH 연결 가이드](https://docs.toast.com/ko/Compute/Instance/ko/overview/#linux)를 참고하시기 바랍니다.
 
 ## MySQL 시작/정지 방법
 
@@ -30,13 +49,13 @@ shell> service mysqld restart
 shell> mysql -uroot
 ```
 
-## MySQL 이미지 생성 후 초기 설정
+## MySQL 인스턴스 생성 후 초기 설정
 
-### 1\. 비밀번호 변경
+### 1\. 비밀번호 설정
 
-초기 설치 후 MySQL ROOT 계정 비밀번호는 지정되어 있지 않습니다. 그러므로 설치 후 반드시 바로 비밀번를 변경해야 합니다.
+초기 설치 후 MySQL ROOT 계정 비밀번호는 지정되어 있지 않습니다. 그러므로 설치 후 반드시 바로 비밀번호를 설정해야 합니다.
 
-* MySQL 5.6 버전 비밀번호 변경
+* MySQL 5.6 버전 비밀번호 설정
 
 ```
 SET PASSWORD [FOR user] = password_option
@@ -44,7 +63,7 @@ SET PASSWORD [FOR user] = password_option
 mysql> set password=password('비밀번호');
 ```
 
-* MySQL 5.7 버전 비밀번호 변경
+* MySQL 5.7 버전 비밀번호 설정
 
 ```
 ALTER USER USER() IDENTIFIED BY 'auth_string';
@@ -112,6 +131,4 @@ MySQL 디렉터리 및 파일 설명은 아래와 같습니다.
 | SLOW_LOG | MySQL Slow Query 파일 경로 -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
 
 
-
-> 인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/ko/console-guide/)를 참고하시기 바랍니다.
 > MySQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/Compute/ko/release-notes/)를 참고하시기 바랍니다.
