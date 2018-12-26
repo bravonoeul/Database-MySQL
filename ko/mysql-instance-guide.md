@@ -56,7 +56,7 @@ SQL Server 구성관리자를 실행합니다.
 
 ### 3. 외부에서 MS-SQL 데이터베이스 접속허용 설정
 
-외부에서 MS-SQL 데이터베이스에 접속하기 위해서 **Network > VPC** 의 **Security Group**탭에서 MS-SQL 서비스 포트를 Security Rule로 추가해야 합니다. 
+외부에서 MS-SQL 데이터베이스에 접속하기 위해서 **Network > Security Group** 에서 MS-SQL 서비스 포트를 Security Rule로 추가해야 합니다. 
 Security Rule 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포트 : 1433) 및 원격 IP를 등록합니다. 
 
 ## 데이터 볼륨 할당
