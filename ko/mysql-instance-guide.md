@@ -61,11 +61,11 @@ Security Rule 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포�
 
 ## 데이터 볼륨 할당
 
-MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다. 
+MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다.
+**Compute > Instance > Block Storage** 탭으로 이동하여 Block Storage를 생성합니다.
 
 ![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812.png)
 
-**Compute > Instance > Block Storage** 탭으로 이동하여 Block Storage를 생성합니다.
 Block Storage 생성시 Volume 타입은 성능을 위해 "범용 SSD"를 추천합니다.
 
 ![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812.png)
