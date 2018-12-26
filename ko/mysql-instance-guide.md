@@ -3,10 +3,10 @@
 ## MS-SQL Intance 생성
 
 MS-SQL를 사용하기 위해서 먼저 인스턴스를 생성해야합니다.
+MS-SQL Instance 생성하기 **바로가기** 버튼을 클릭하면 **Compute > Instance > 인스턴스 생성**로 넘어갑니다.
 
 ![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812.png)
 
-MS-SQL Instance 생성하기 **바로가기** 버튼을 클릭하면 **Compute > Instance > 인스턴스 생성**로 넘어갑니다.
 MS-SQL 이미지 선택 후 추가 설정 완료 후 인스턴스를 생성합니다.
 인스턴스 생성에 대한 자세한 내용은 [Instance 개요](https://docs.toast.com/ko/Compute/Instance/ko/overview/)를 참고하시기 바랍니다. 
 
