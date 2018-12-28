@@ -4,13 +4,13 @@
 
 MySQLを使用するために、先にインスタンスを作成する必要があります。
 
-![mysqlinstance_01_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_01_201812.png)
+![mysqlinstance_01_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_01_201812_en.png)
 
 MySQL Instance作成 **ショートカット**ボタンをクリックすると **Compute > Instance >インスタンス作成** に進みます。
 
 MySQLバージョンは、次の2種類が提供されます。
 
-![mysqlinstance_02_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_02_201812.png)
+![mysqlinstance_02_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_02_201812_en.png)
 
 * MySQL Community Server 5.6.38
     * mysql-community-server-5.6.38-2.el6.x86_64
@@ -18,15 +18,15 @@ MySQLバージョンは、次の2種類が提供されます。
     * mysql-community-server-5.7.20-1.el6.x86_64
 
 MySQLイメージを選択し、追加設定完了後にインスタンスを作成します。
-インスタンス作成については、[Instance概要](http://docs.toast.com/ko/Compute/Instance/ko/overview/)を参照してください。
+インスタンス作成については、[Instance概要](http://docs.toast.com/ja/Compute/Instance/ja/overview/)を参照してください。
 
 インスタンス作成完了後にSSHを使用して、インスタンスにアクセスします。
 インスタンスにFloating IPが接続されていて、セキュリティーグループでTCPポート22(SSH)が許可されている必要があります。
 
-![mysqlinstance_03_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_03_201812.png)
+![mysqlinstance_03_201812](https://static.toastoven.net/prod_mysql/mysqlinstance_03_201812_en.png)
 
 SSHクライアントと設定したキーペアを利用してインスタンスに接続します。
-SSH接続の詳細ガイドは[SSH接続ガイド](https://docs.toast.com/ko/Compute/Instance/ko/overview/#linux)を参照してください。
+SSH接続の詳細ガイドは[SSH接続ガイド](https://docs.toast.com/ja/Compute/Instance/ja/overview/#linux)を参照してください。
 
 ## MySQL起動/停止方法
 
@@ -131,4 +131,4 @@ MySQLディレクトリおよびファイル説明は下記の通りです。
 | SLOW_LOG | MySQL Slow Queryファイルのパス -  <span style="color:#333333">/var/lib/mysql/*slow.log</span> |
 
 
-> MySQL Instanceのリリース状況は[インスタンスリリースノート](/Compute/Compute/ko/release-notes/)を参照してください。
+> MySQL Instanceのリリース状況は[インスタンスリリースノート](/Compute/Compute/ja/release-notes/)を参照してください。
