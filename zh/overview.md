@@ -1,11 +1,10 @@
-## Database > MySQL Instance > Overview
+## Database > MySQL Instance > 概要
 
-The service provides virtual servers where MySQL is installed. 
-Specifications can be selected upon MySQL version, CPU, memory, or disk. 
+是提供已安装MySQL的虚拟服务器的服务。选择MySQL版本、CPU、内存、磁盘，可以使用所需规格的MySQL。
 
-## Features 
+## 功能
 
-- Copy MySQL to enhance performance and scalability of applications  
-- Partition MySQL to improve performance and management of large database
-- Provide performance_schema database to monitor resource consumption at the user/applied program level 
-- Provide information_schema database to easily access metadata 
+- 提高应用程序性能及扩展性的MySQL复制
+- 提升大型数据库性能与管理的MySQL分区
+- 提供监控用户/应用程序水平的资源消耗的performance_schema数据库
+- 提供可以轻松访问元数据的information_schema数据库
