@@ -1,9 +1,10 @@
-## Database > MySQL Instance > 概述
-MySQL가 설치된 가상서버를 제공하는 서비스입니다. MySQL 버전, CPU, 메모리, 디스크를 선택하여 원하는 스팩의 MySQL을 사용할 수 있습니다.
+## Database > MySQL Instance > 概要
 
-## 기능
+是提供已安装MySQL的虚拟服务器的服务。选择MySQL版本、CPU、内存、磁盘，可以使用所需规格的MySQL。
 
-- 애플리케이션 성능 및 확장성을 향상시키는 MySQL 복제
-- 대형 데이터베이스 성능과 관리를 향상시키는 MySQL 파티셔닝
-- 사용자 / 응용 프로그램 수준의 자원 소비 모니터링을위한 performance_schema 디비 제공
-- 메타 데이터에 쉽게 액세스 할 수있는 information_schema 디비 제공
+## 功能
+
+- 提高应用程序性能及扩展性的MySQL复制
+- 提升大型数据库性能与管理的MySQL分区
+- 提供监控用户/应用程序水平的资源消耗的performance_schema数据库
+- 提供可以轻松访问元数据的information_schema数据库
